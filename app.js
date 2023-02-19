@@ -2,8 +2,9 @@ let container = document.querySelector('.container');
 let small = document.querySelector('#small');
 let large = document.querySelector('#large');
 let remove = document.querySelector('#remove');
-let block = document.querySelector('.container');
-let deleter = document.querySelector('#remove')
+let block = document.querySelector('.square');
+let deleter = document.querySelector('#remove');
+let custom = document.querySelector('#custom');
 
 small.addEventListener('click', () => {
     SquaresSmall();
@@ -17,7 +18,9 @@ deleter.addEventListener('click', () => {
     removeElements();
 });
 
-
+custom.addEventListener('click', () => {
+    console.log(userCustom());
+});
 // this sucks really bad down below
 // deleter.addEventListener('click', (e) => {
 //     let test = document.getElementsByClassName('square')
@@ -30,11 +33,11 @@ deleter.addEventListener('click', () => {
 
 
 
-block.addEventListener('mouseover' , () => {
-    colorIn();
+// block.addEventListener('mouseover' , () => {
+//     colorIn();
 
 
-});
+// });
 
 
 
@@ -46,6 +49,10 @@ function SquaresSmall() {
         
         htmlToAdd += `<div class="square"></div>`;
         container.innerHTML = htmlToAdd;
+
+        block.addEventListener('mouseover' , () => {
+            colorIn();
+        });
     };
 
 }
@@ -58,9 +65,15 @@ function SquaresLarge() {
         
         htmlToAdd += `<div class="square"></div>`;
         container.innerHTML = htmlToAdd;
-    };
+}};
 
-}
+function userCustom() {
+    let htmlToAdd = "";
+    let input = prompt ('what size grid?');
+    for (let i = 0; i < input; i++) {
+        htmlToAdd += `<div class="square"></div>`;
+        container.innerHTML = htmlToAdd;
+}};
 
 function removeElements () {
     let remove = document.querySelectorAll('.square')
