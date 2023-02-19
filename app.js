@@ -2,9 +2,9 @@ let container = document.querySelector('.container');
 let small = document.querySelector('#small');
 let large = document.querySelector('#large');
 let remove = document.querySelector('#remove');
-let block = document.querySelector('.square');
 let deleter = document.querySelector('#remove');
 let custom = document.querySelector('#custom');
+
 
 small.addEventListener('click', () => {
     SquaresSmall();
@@ -19,8 +19,9 @@ deleter.addEventListener('click', () => {
 });
 
 custom.addEventListener('click', () => {
-    console.log(userCustom());
+    userCustom();
 });
+
 // this sucks really bad down below
 // deleter.addEventListener('click', (e) => {
 //     let test = document.getElementsByClassName('square')
@@ -36,43 +37,64 @@ custom.addEventListener('click', () => {
 // block.addEventListener('mouseover' , () => {
 //     colorIn();
 
-
+// });
 // });
 
 
 
 function SquaresSmall() {
-    let htmlToAdd = "";
+    // let htmlToAdd = "";
     let numOfSquares = 32;
-  
+    container.innerHTML = ''
     for (let i = 0; i < numOfSquares; i++) {
+        // htmlToAdd += `<div class="square"></div>`;
+        let square = document.createElement('div')
+        // <div></div>
+        square.classList.add('square')
+        // <div class='square'></div>
+        square.addEventListener('mouseover', () => {
+            square.style.backgroundColor = 'black';
+            square.style.color = "black";
+        } 
+        // <div class='square black'></div>
+        )
+        container.appendChild(square)
+        // <div class='container'></div>
+            // <div class='square'></div>
+        // <div class='container'></div>
         
-        htmlToAdd += `<div class="square"></div>`;
-        container.innerHTML = htmlToAdd;
-
-        block.addEventListener('mouseover' , () => {
-            colorIn();
-        });
     };
+
 
 }
 
 function SquaresLarge() {
-    let htmlToAdd = "";
     let numOfSquares = 64;
-  
+    container.innerHTML = ''
     for (let i = 0; i < numOfSquares; i++) {
+        let square = document.createElement('div')
+        square.classList.add('square')
+        square.addEventListener('mouseover', () => {
+            square.style.backgroundColor = 'black';
+            square.style.color = "black";
+        });
+        container.appendChild(square)
         
-        htmlToAdd += `<div class="square"></div>`;
-        container.innerHTML = htmlToAdd;
-}};
+    };
+};
 
 function userCustom() {
-    let htmlToAdd = "";
+    // let htmlToAdd = "";
     let input = prompt ('what size grid?');
-    for (let i = 0; i < input; i++) {
-        htmlToAdd += `<div class="square"></div>`;
-        container.innerHTML = htmlToAdd;
+    let numOfSquares = input
+    for (let i = 0; i < numOfSquares; i++) {
+        let square = document.createElement('div')
+        square.classList.add('square');
+        square.addEventListener('mouseover', () => {
+            square.style.backgroundColor = 'black';
+            square.style.color = 'black';
+        });
+    container.appendChild(square)
 }};
 
 function removeElements () {
@@ -80,9 +102,9 @@ function removeElements () {
     remove.forEach(element => {
        element.remove();
     });
-   }
+   };
 
-function colorIn () {
-    block.style.backgroundColor = 'black';
-    block.style.color = "black";
-}
+// function colorIn () {
+//     block.style.backgroundColor = 'black';
+//     block.style.color = "black";
+// }
