@@ -1,1 +1,1 @@
-# Etch-A-Sketch
+# Etch-A-Sketch project from Odin, made with js and css.

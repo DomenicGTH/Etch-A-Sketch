@@ -16,6 +16,10 @@ function SquaresCustom() {
     let numOfSquares = prompt ('how many squares?');
     container.innerHTML = ''
     for (let i = 0; i < numOfSquares*100; i++) {
+        if (numOfSquares > 100) {
+            alert ("Number must be 100 or lower");
+            break;
+        }
         let square = document.createElement('div')
         square.classList.add('square')
         square.addEventListener('mouseover', () => {

@@ -3,16 +3,53 @@ html, body {
     height: 100%;
 }
 
+#content {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+}
 .container {
     display: grid;
     grid-gap: 1px;
-    width: 800px;
-    height: 800px;
+    width: 650px;
+    height: 650px;
     margin: 0 auto;
     border: 1px;
     border-color: black;
     /* grid-template-columns: repeat(userInput/2, minmax(0, 1fr));
     grid-template-rows: repeat(userInput/2, minmax(0, 1fr)); */
+}
+
+.buttons {
+    align-self: center;
+    display: grid;
+    gap: 100px;
+    margin: 100px;
+}
+
+#remove {
+    color: white;
+    background-color: red;
+    border-radius: 15px;
+    padding: 10px 10px 10px 10px;
+    border: none;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#custom {
+    color: white;
+    background-color: rgb(214, 41, 199);
+    border-radius: 15px;
+    padding: 10px 10px 10px 10px;
+    border: none;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .col {
