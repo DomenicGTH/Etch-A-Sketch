@@ -1,77 +1,21 @@
 let container = document.querySelector('.container');
-let small = document.querySelector('#small');
-let large = document.querySelector('#large');
-let remove = document.querySelector('#remove');
 let deleter = document.querySelector('#remove');
 let custom = document.querySelector('#custom');
 
-
-small.addEventListener('click', () => {
-    SquaresSmall();
-});
-
-large.addEventListener('click', () => {
-    SquaresLarge();
-});
 
 deleter.addEventListener('click', () => {
     removeElements();
 });
 
 custom.addEventListener('click', () => {
-    userCustom();
+    SquaresCustom();
 });
 
-// this sucks really bad down below
-// deleter.addEventListener('click', (e) => {
-//     let test = document.getElementsByClassName('square')
-//     test.forEach(e => {
-//         e.remove()});
-    
-//     });
-    // e.forEach(e => e.remove());
 
-
-
-
-// block.addEventListener('mouseover' , () => {
-//     colorIn();
-
-// });
-// });
-
-
-
-function SquaresSmall() {
-    // let htmlToAdd = "";
-    let numOfSquares = 32;
+function SquaresCustom() {
+    let numOfSquares = prompt ('how many squares?');
     container.innerHTML = ''
-    for (let i = 0; i < numOfSquares; i++) {
-        // htmlToAdd += `<div class="square"></div>`;
-        let square = document.createElement('div')
-        // <div></div>
-        square.classList.add('square')
-        // <div class='square'></div>
-        square.addEventListener('mouseover', () => {
-            square.style.backgroundColor = 'black';
-            square.style.color = "black";
-        } 
-        // <div class='square black'></div>
-        )
-        container.appendChild(square)
-        // <div class='container'></div>
-            // <div class='square'></div>
-        // <div class='container'></div>
-        
-    };
-
-
-}
-
-function SquaresLarge() {
-    let numOfSquares = 64;
-    container.innerHTML = ''
-    for (let i = 0; i < numOfSquares; i++) {
+    for (let i = 0; i < numOfSquares*100; i++) {
         let square = document.createElement('div')
         square.classList.add('square')
         square.addEventListener('mouseover', () => {
@@ -79,23 +23,9 @@ function SquaresLarge() {
             square.style.color = "black";
         });
         container.appendChild(square)
-        
-    };
+        container.style.cssText = 'grid-template-columns:repeat(' + numOfSquares + ', minmax(0,1fr));grid-template-rows:repeat(' + numOfSquares + ', minmax(0,1fr));'
+    }
 };
-
-function userCustom() {
-    // let htmlToAdd = "";
-    let input = prompt ('what size grid?');
-    let numOfSquares = input
-    for (let i = 0; i < numOfSquares; i++) {
-        let square = document.createElement('div')
-        square.classList.add('square');
-        square.addEventListener('mouseover', () => {
-            square.style.backgroundColor = 'black';
-            square.style.color = 'black';
-        });
-    container.appendChild(square)
-}};
 
 function removeElements () {
     let remove = document.querySelectorAll('.square')
@@ -104,7 +34,58 @@ function removeElements () {
     });
    };
 
-// function colorIn () {
-//     block.style.backgroundColor = 'black';
-//     block.style.color = "black";
+
+// test code, unused code, for reference
+
+// function userCustom() {
+//     container.innerHTML = '';
+//     userInput = prompt ('what size');
+//     let halved = userInput
+//     for (let i = 0; i < halved; i++) {
+//         let row = document.createElement('div')
+//         row.classList.add('row');
+//         row.addEventListener('mouseover', () => {
+//             row.style.backgroundColor = 'black';
+//             row.style.color = 'black';
+//     // }
+//     // for (let j = 0; j < halved; j++) {
+//     //     let col = document.createElement('div')
+//     //     col.classList.add('col');
+//     })};
+//     container.appendChild(row)
 // }
+
+// function colourIn() {
+//     row.addEventListener('mouseover', () => {
+//         row.style.backgroundColor = 'black';
+//         row.style.color = 'black';
+//     });
+//     col.addEventListener('mouseover', () => {
+//         col.style.backgroundColor = 'black';
+//         col.style.color = 'black';
+//     });
+// } */
+
+// function SquaresCustom() {
+//     let numOfSquares = prompt ('how many squares?');
+//     container.innerHTML = ''
+//     for (let i = 0; i < numOfSquares*2; i++) {
+//         let row = document.createElement('div')
+//         row.classList.add('row')
+//         row.addEventListener('mouseover', () => {
+//             row.style.backgroundColor = 'black';
+//             row.style.color = "black";
+//         });
+//         container.appendChild(row)
+//     };
+//     for (let i = 0; i < numOfSquares*2; i++) {
+//         let col = document.createElement('div')
+//         col.classList.add('col')
+//         col.addEventListener('mouseover', () => {
+//             col.style.backgroundColor = 'black';
+//             col.style.color = "black";
+//         });
+//         container.appendChild(col)
+//         container.style.cssText = 'grid-template-columns:repeat(' + numOfSquares + ', minmax(0,1fr));grid-template-rows:repeat(' + numOfSquares + ', minmax(0,1fr));'
+//     }
+// }; 
